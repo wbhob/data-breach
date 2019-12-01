@@ -4,11 +4,8 @@
 
   const dispatch = createEventDispatcher();
 
-  const script = `GTPD has entered the scene and started asking for BuzzCards.`;
-  const buttons = [
-    "Show them your Fake BuzzCard",
-    "Give them your Real BuzzCard"
-  ];
+  const script = `GTPD saw you run and is on your tail!`;
+  const buttons = ["Run run run!", "Rent an electric scooter"];
 
   function option(event) {
     let index = event.detail;
@@ -19,7 +16,7 @@
       dispatch("correct", index);
     } else {
       throw new Error(
-        `impossible condition achieved in Interactive6, got index: ${index}`
+        `impossible condition achieved in Interactive8, got index: ${index}`
       );
     }
   }

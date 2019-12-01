@@ -19,8 +19,8 @@
 
   let buzzcardStyle = "height: 0px;";
 
-  const correctBuzzcard = "https://via.placeholder.com/50x30";
-  const incorrectBuzzCard = "https://via.placeholder.com/50x30";
+  const correctBuzzcard = "graphics/buzzcard-real.png";
+  const incorrectBuzzCard = "graphics/buzzcard-fake.png";
   let buzzcardSrc = correctBuzzcard;
 
   function dispatchComplete() {
@@ -29,7 +29,7 @@
 
   onMount(() => {
     let interval = setInterval(() => {
-      if (characterDistanceFromLeft < 520) {
+      if (characterDistanceFromLeft < 320) {
         dispatchComplete();
         clearInterval(interval);
       }
@@ -39,13 +39,15 @@
     }, 200);
   });
 
+  let numTimes = 8;
+
   function expandBuzzCard() {
     let i = 0;
     let buzzCardExpand = setInterval(() => {
       i++;
-      console.log((50 * i) / 4);
-      buzzcardStyle = `height: ${(50 * i) / 4}px;`;
-      if (i == 4) {
+      console.log((50 * i) / numTimes);
+      buzzcardStyle = `height: ${(50 * i) / numTimes}px;`;
+      if (i == numTimes) {
         clearInterval(buzzCardExpand);
         slideBuzzCard();
       }
@@ -56,9 +58,9 @@
     let i = 0;
     let buzzCardSlideOver = setInterval(() => {
       i++;
-      buzzcardStyle = `height:50px;margin-left: ${55 - 3 * i}%`;
+      buzzcardStyle = `height:50px;margin-left: ${35 - 2 * i}%`;
 
-      if (55 - 3 * i < 40) {
+      if (32 - 2 * i < 20) {
         clearInterval(buzzCardSlideOver);
         shrinkBuzzCard();
       }
@@ -66,15 +68,17 @@
   }
 
   function shrinkBuzzCard() {
-    let i = 4;
+    let i = numTimes;
     let buzzCardShrink = setInterval(() => {
       i--;
-      buzzcardStyle = `height:${(50 * i) / 4}px;margin-left: 42%`;
+      buzzcardStyle = `height:${(50 * i) / numTimes}px;margin-left: 22%`;
       if (i == 0) {
         clearInterval(buzzCardShrink);
         buzzcardStyle = `display:none`;
         if (buzzcardSrc == correctBuzzcard) {
-          dispatch("buildout");
+          setTimeout(() => {
+            dispatch("buildout");
+          }, 1000);
         } else {
           gameOver = true;
         }
@@ -115,15 +119,16 @@
     width: auto;
     position: absolute;
     bottom: 0;
-    margin-bottom: 8%;
+    margin-bottom: 4%;
+    transform: rotateY(180deg);
   }
   .cop img {
     height: 50%;
     width: auto;
     position: absolute;
     bottom: 0;
-    margin-bottom: 8%;
-    margin-left: 40%;
+    margin-bottom: 4%;
+    margin-left: 20%;
   }
 
   .overlay {
@@ -140,7 +145,7 @@
     position: absolute;
     bottom: 0;
     margin-bottom: 20%;
-    margin-left: 55%;
+    margin-left: 35%;
   }
 </style>
 
@@ -164,7 +169,7 @@
   {#if gameOver}
     <div in:fade class="overlay">
       <GameOver
-        message="Faculty found you suspicious and reported you to GTPD."
+        message="Your fake BuzzCard was not found in the database. GTPD searched you, and found the data."
         on:playagain={() => dispatch('buildout')} />
     </div>
   {/if}

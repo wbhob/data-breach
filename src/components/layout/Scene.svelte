@@ -9,6 +9,8 @@
   import Stage51 from "../scenes/Stage5-1.svelte";
   import Stage52 from "../scenes/Stage5-2.svelte";
   import Stage6 from "../scenes/Stage6.svelte";
+  import Stage7 from "../scenes/Stage7.svelte";
+  import Stage8 from "../scenes/Stage8.svelte";
 
   export let stage;
 
@@ -53,5 +55,11 @@
   {/if}
   {#if stage == 6}
     <Stage6 on:complete on:buildout {correct} {incorrect} />
+  {/if}
+  {#if stage == 7}
+    <Stage7 on:complete on:buildout {correct} {incorrect} />
+  {/if}
+  {#if stage == 8}
+    <Stage8 on:complete on:buildout on:playagain {correct} {incorrect} />
   {/if}
 </div>

@@ -3,11 +3,8 @@
   import InteractiveModule from "./InteractiveModule.svelte";
   import { showOptions } from "./interactive";
 
-  let sceneStage = 7;
-  let interactiveStage = 6;
-
-  // let sceneStage = 0;
-  // let interactiveStage = -1;
+  let sceneStage = 8;
+  let interactiveStage = 7;
 
   let techgreen = false;
 
@@ -27,24 +24,30 @@
   }
 
   function buildOutComplete() {
+    console.trace();
     sceneStage++;
 
     if (incorrect) {
-      sceneStage = -1;
-      interactiveStage = -1;
-
-      setTimeout(() => {
-        sceneStage = 0;
-        interactiveStage = -1;
-      }, 600);
+      playagain();
+    } else {
+      correct = false;
+      incorrect = false;
     }
-
-    correct = false;
-    incorrect = false;
-
     showOptions.set(true);
   }
 
+  function playagain() {
+    correct = false;
+    incorrect = false;
+
+    sceneStage = -1;
+    interactiveStage = -1;
+
+    setTimeout(() => {
+      sceneStage = 0;
+      interactiveStage = -1;
+    }, 600);
+  }
   // special cases
   function northAve() {
     interactiveCorrect();
@@ -74,7 +77,8 @@
     {techgreen}
     stage={sceneStage}
     on:complete={animationComplete}
-    on:buildout={buildOutComplete} />
+    on:buildout={buildOutComplete}
+    on:playagain={playagain} />
 
   <div class="divider" />
 

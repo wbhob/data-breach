@@ -12,6 +12,8 @@
   import Interactive51 from "../interactives/Interactive5-1.svelte";
   import Interactive52 from "../interactives/Interactive5-2.svelte";
   import Interactive6 from "../interactives/Interactive6.svelte";
+  import Interactive7 from "../interactives/Interactive7.svelte";
+  import Interactive8 from "../interactives/Interactive8.svelte";
   import { showOptions } from "./interactive";
 
   const dispatch = createEventDispatcher();
@@ -97,6 +99,16 @@
     {/if}
     {#if stage == 6}
       <Interactive6
+        on:correct={dispatchCorrect}
+        on:incorrect={dispatchIncorrect} />
+    {/if}
+    {#if stage == 7}
+      <Interactive7
+        on:correct={dispatchCorrect}
+        on:incorrect={dispatchIncorrect} />
+    {/if}
+    {#if stage == 8}
+      <Interactive8
         on:correct={dispatchCorrect}
         on:incorrect={dispatchIncorrect} />
     {/if}

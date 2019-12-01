@@ -73,6 +73,7 @@
     position: absolute;
     bottom: 0;
     margin-bottom: 8%;
+    transform: rotateY(180deg);
   }
   .faculty img {
     height: 50%;
@@ -81,6 +82,7 @@
     bottom: 0;
     margin-bottom: 8%;
     margin-left: 40%;
+    transform: rotateY(180deg);
   }
 </style>
 
@@ -94,7 +96,7 @@
   </div>
 
   <div class="faculty">
-    <img src="characters/girl.png" alt="" />
+    <img src="characters/faculty.png" alt="" />
   </div>
 
 </div>

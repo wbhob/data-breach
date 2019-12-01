@@ -1,8 +1,6 @@
-// const defaultTimeout = 50;
-// const slowTimeout = 100;
+const defaultTimeout = 50;
+const slowTimeout = 100;
 
-const defaultTimeout = 0.2;
-const slowTimeout = 0.2;
 
 export function type(script, onSet) {
   return new Promise((resolve) => {

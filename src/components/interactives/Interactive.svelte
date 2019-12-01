@@ -52,7 +52,7 @@
   }
 
   .button {
-    max-width: 45%;
+    max-width: 49%;
     display: inline-block;
   }
 </style>

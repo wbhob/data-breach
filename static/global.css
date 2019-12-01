@@ -6,6 +6,13 @@ body {
   font-size: 14px;
   line-height: 1.5;
   color: white;
+  font-variant-ligatures: no-common-ligatures !important;
+}
+html,
+body {
+  background: black !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
 }
 
 h1,
@@ -21,19 +28,6 @@ h6 {
 
 h1 {
   font-size: 2em;
-}
-
-a {
-  color: inherit;
-}
-
-code {
-  font-family: menlo, inconsolata, monospace;
-  font-size: calc(1em - 2px);
-  color: #555;
-  background-color: #f0f0f0;
-  padding: 0.2em 0.4em;
-  border-radius: 2px;
 }
 
 @media (min-width: 400px) {
