@@ -45,7 +45,6 @@
     let i = 0;
     let buzzCardExpand = setInterval(() => {
       i++;
-      console.log((50 * i) / numTimes);
       buzzcardStyle = `height: ${(50 * i) / numTimes}px;`;
       if (i == numTimes) {
         clearInterval(buzzCardExpand);

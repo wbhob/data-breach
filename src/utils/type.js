@@ -1,9 +1,8 @@
 const defaultTimeout = 50;
 const slowTimeout = 100;
 
-
 export function type(script, onSet) {
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     let texts = [""];
 
     let i = 0;

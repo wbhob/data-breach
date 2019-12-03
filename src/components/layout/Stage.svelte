@@ -3,8 +3,8 @@
   import InteractiveModule from "./InteractiveModule.svelte";
   import { showOptions } from "./interactive";
 
-  let sceneStage = 8;
-  let interactiveStage = 7;
+  let sceneStage = 0;
+  let interactiveStage = -1;
 
   let techgreen = false;
 
@@ -24,7 +24,6 @@
   }
 
   function buildOutComplete() {
-    console.trace();
     sceneStage++;
 
     if (incorrect) {
@@ -32,8 +31,9 @@
     } else {
       correct = false;
       incorrect = false;
+      showOptions.set(true);
     }
-    showOptions.set(true);
+    
   }
 
   function playagain() {
@@ -46,6 +46,7 @@
     setTimeout(() => {
       sceneStage = 0;
       interactiveStage = -1;
+      showOptions.set(true);
     }, 600);
   }
   // special cases
