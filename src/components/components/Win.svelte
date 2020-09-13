@@ -13,7 +13,7 @@
   let script = `Thank you for playing Data Breach. Remember to always double-check your file attachments!
 
   Credits
-  Story - Harry S.E. Bae
+  Story - REDACTED
   Graphics - Nathan Davenport
   Engineering - Wilson Hobbs
   `;

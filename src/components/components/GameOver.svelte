@@ -14,7 +14,7 @@
   let script = `${message}
 
   Credits
-  Story - Harry S.E. Bae
+  Story - REDACTED
   Graphics - Nathan Davenport
   Engineering - Wilson Hobbs
   `;
